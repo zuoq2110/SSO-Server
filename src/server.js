@@ -28,10 +28,9 @@ const START_SERVER = () => {
   // Use Route APIs V1
   app.use('/api-v1', APIs_V1)
 
-  // Học về biến môi trường ENV ở đây: https://youtu.be/Vgr3MWb7aOw
   const LOCAL_DEV_APP_PORT = 8017
   const LOCAL_DEV_APP_HOST = 'localhost'
-  const AUTHOR = 'TrungQuanDev'
+  const AUTHOR = 'TungDuongDev'
 
   // Môi trường Production (cụ thể hiện tại là đang support Render.com)
   if (process.env.BUILD_MODE === 'production') {
