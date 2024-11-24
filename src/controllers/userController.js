@@ -11,10 +11,10 @@ const hookLogin = async (req, res) => {
     // req.auth.token // The raw JWT token.
 
     const newUser = req.body
-    // console.log('newUser: ', newUser)
+    console.log('newUser: ', newUser)
 
     const existingUser = await db.findOne({ email: newUser.email })
-    // console.log('existingUser: ', existingUser)
+    console.log('existingUser: ', existingUser)
 
     // Chưa tồn tại user thì tiếp tục xuống dưới insert vào DB, ngược lại thì tùy spec dự án để xử lý
     if (existingUser) {
@@ -26,7 +26,7 @@ const hookLogin = async (req, res) => {
     // Mục đính để dễ dàng đọc và ghi dữ liệu mà không cần phải xử lý toàn bộ tệp JSON mỗi lần truy vấn
     // NeDB tự động thêm _id cho mỗi bản ghi nếu chúng ta không chỉ định
     const insertedUser = await db.insert(newUser)
-    // console.log('insertedUser: ', insertedUser)
+    console.log('insertedUser: ', insertedUser)
 
     res.status(StatusCodes.CREATED).json(insertedUser)
   } catch (error) {
